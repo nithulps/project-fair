@@ -1,0 +1,312 @@
+Node JS
+------------
+-Node JS is not a programming language.
+-Node JS is a JavaScript runtime environment.
+-Node JS allows JavaScript to run outside the browser.
+-Node JS comes with a lot of modules and mostly used in web development.
+-browser engines 
+   chrome - v8 engines
+   mozilla - spider monkey
+-Node JS is opern source we can use it freely also make mmodification in it.
+-Node is using v8 engines
+
+
+
+
+Features
+-----------
+- it is built top v8 engines
+- extremely fast
+- it has the capacity to take multiple request at a time
+- lightweight we can use in any systems
+- Node js is single threaded, that means if it accept multiple request is only resolve only one request at a time.
+- in caseof .Net and Java it has multiple threades to accept and resolve requests
+- .Net and Java are examples of multithreaded
+
+-Node js is highly fast in resolving requests 
+
+
+
+
+Q. How node js handle multiple request even it is single threaded ?
+->event loop = it us ethe mechanism js code consist of sync & async 
+-sync - execute oneby one
+-async - immidiate execution over a single time period
+
+->first js engine scan entire cod eand then take into async fns into there call stack there are two types of call stack  microstack and callback
+
+
+
+Timer Functions
+------------------
+setTimeout()
+setInterval()
+clearTimeout()
+clearInterval()
+
+
+Modules
+----------
+
+js libreries inside a node js environment is called modules
+Custom modules - user defined
+Inbuilt modules - we can us inbuilt modueles as a file system
+
+for importing modules : "require"
+for exporting modules : "module.exports"
+
+
+
+
+
+
+file system is an inbuilt mopdules to perform operations on a file 
+Basic operations
+-----------------
+
+readFile : fs.readFile()
+create   : fs.open()
+update   : fs.writeFile()
+delete   : fs.unlink()
+rename   : fs.rename()
+
+
+http module
+-------------
+
+-http module is used to create a server
+-used to transfer data over http-http module can create a http server, that listen to server ports and gives response to the client
+-first we have to import http module
+-then we have to create a server - createServer()
+-then we have to listen to the server
+
+
+Crypto Modules
+---------------
+using hashing & encryption
+
+
+event module
+--------------
+eventEmitter is using for craeting event
+-we need to import events module - require('events')
+-hee we make use eventEmitter class
+-on() method used for creating an eventEmit() used for call an event
+
+
+Client server architecture
+----------------------------
+it includes two types of components 1) client side and 2) server side
+-client side send request to server , server resolvers this request and send it back to user
+-API 
+-client server communication is utilizing the api for data sharing
+-Restful api Architecture : make use of http for creating the API and data communicate as JSON data
+
+
+
+CRUD Operations (create read update delete)
+---------------------------------------------
+CREATE - POST
+READ - GET
+UPDATE - PUT
+DELETE - DELETE
+
+
+
+CORS (cross origin resource sharing)
+--------------------------------------
+- In client server architecture, client is requesting on one domain and port , server is running on another port (sometimes domain can be at same)
+here Node server by default does not support request from outside domain or port to silve the issue we make use of CORS module
+
+
+
+Server creation
+-----------------
+- initializing newly created project
+
+npm init-y
+
+
+inside packags.json type this-->
+
+-inside script key {
+   -start file as 
+   "start":"node index.js"
+}
+
+
+-install express - it is framework of node js for creaing a server
+   npm i express
+
+
+-install CORS (cross origin resource sharing)
+  npm i cors  
+
+
+-install .env module
+ useed to load environment variables from .env file
+    npm install dotenv
+
+    process.env - command to access environmental variables
+    
+
+   -create .env file to hold environmental variables
+   -create .gitignore file to add ignoring contents while adding project on github
+   -create index.js file to define server
+
+   -import dotenv file
+   -import express
+   -import cors
+
+   -create express server
+
+   -create route folder in server to define server
+
+   Create router file
+   -import express
+   -using router object to define path
+   -todefinde logic toresolve http request, redirect it to its controller
+
+   -create a controllr folder in server folder to define logic to resolve API
+   -create controller.js file
+   -create function to solve request
+
+
+    MVC Architecture
+    ---------------------
+    What is Model-View-Controller?
+
+    MVC is simply a design or architectural pattern used in software engineering. 
+    While this isn’t a hard rule, but this pattern helps developers focus on a particular aspect of their application, one step at a time.
+
+    The main goal of MVC is to split large applications into specific sections that have their own individual purpose.
+
+    It also allows developers to logically structure applications in a secure way, which we will show in this tutorial. But first, let’s break down what each aspect of the pattern provides.
+
+    Model
+    ------
+    As the name implies, a model is a design or structure. 
+    In the case of MVC, the model determines how a database is structured, defining a section of the application that interacts with the database. 
+    This is where we will define the properties of a user that will be store in our database.
+    The controller accesses the database through the model. You could say that the model is the heart of the application.
+
+    View
+    -------
+    The view is where end users interact within the application.
+    Simply put, this is where all the HTML template files go.
+
+    Controller
+    -----------
+    The controller interacts with the model and serves the response and functionality to the view. 
+    When an end user makes a request, it’s sent to the controller which interacts with the database.
+
+    You can think of the controller as a waiter in a restaurant that handles customers’ orders, which in this case is the view. The waiter then goes to the kitchen, which is the model/database, and gets food to serve the customers, which is the controller handling the request.
+
+   
+
+
+
+SQL
+------
+- Relational DBMS
+- store in table with Rows & Col
+- Uses fixed schema
+- Used optimize complex join and transactions
+- support rich set of data types
+- declarative query language
+- ACID (Atomicity ,consistency isolation and Durability)property
+- used traditional bussiness application
+
+
+
+MongoDB 
+------------
+- Document oriented noSql based DBMS
+- It will be collection of JSON Data
+- use dynamic schmea
+- optimized for scalability & perfomance
+- limited set of datatypes expressive query based language
+- NoSQL based on CAP (Consistency, Availability & Partition tolerance)property
+- used in big data and real time web application
+
+
+Commands in MongoDB
+--------------------
+-Show Database : display all db's
+-use db name: redirect to particular db
+-show collections: display all collections
+-find(): to get all documents from collection
+-findOne({email: ,password:}): prticular data satisfying condition
+-find().limit() - to display data with a limit
+-find().sort({key:1}) - sort ascending , -1 descending
+-insertMany() - insert multiple documents at a time
+-insertone() - insert single document at a time
+-expr - expression (we dont have to check if it exists)
+
+-updateOne() - update single value at a time
+-updateMany ()
+-deleteOne ()
+-deleteMany()
+
+
+
+
+applying queries commands
+-----------------------------
+greater     $gt/$gte
+lesser      $lt/$lte
+$and / $or
+$eq  / $ne
+$in  / $nin
+$exists
+$set
+$inc
+$push
+
+
+
+
+
+$lookup (aggregation)
+-----------------------
+Performs a left outer join to a collection in the same database to filter in documents from the "joined" collection for processing. The $lookup stage adds a new array field to each input document. The new array field contains the matching documents from the "joined" collection. The $lookup stage passes these reshaped documents to the next stage.
+
+Starting in MongoDB 5.1, you can use $lookup with sharded collections.
+
+To combine elements from two different collections, use the $unionWith pipeline stage.
+
+
+
+Compatibility
+-----------------
+You can use $lookup for deployments hosted in the following environments:
+
+MongoDB Atlas: The fully managed service for MongoDB deployments in the cloud
+
+MongoDB Enterprise: The subscription-based, self-managed version of MongoDB
+
+MongoDB Community: The source-available, free-to-use, and self-managed version of MongoDB
+
+
+
+Mongoose
+------------
+Nodejs library to communucate mongodb 
+install Mongoose - npm i mongoose
+create folder to define DB connection using mongoose
+  - create a js file to define connectivity
+  - import mongoose
+  - get connection string from process.env
+  - connect MDB with mongoose
+
+  Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment. Mongoose supports Node.js and Deno (alpha).
+
+
+  Multer
+  --------
+  Multer is a node.js middleware for handling multipart/form-data, which is primarily used for uploading files. It is written on top of busboy for maximum efficiency.
+  Multer adds a body object and a file or files object to the request object. The body object contains the values of the text fields of the form, the file or files object contains the files uploaded via the form.
+
+  Basic usage example: Don't forget the enctype="multipart/form-data" in your form.
+
+  NOTE: Multer will not process any form which is not multipart (multipart/form-data).
